@@ -7,6 +7,7 @@ var gulp = require('gulp'),
 var jsPath = [
     './src/vendor/angular/angular.js',
     './src/vendor/angular-route/angular-route.js',
+    './src/vendor/ng-resource/dist/ng-resource.js',
     './src/app.js'
 ];
 
