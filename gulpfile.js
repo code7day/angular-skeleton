@@ -19,7 +19,7 @@ gulp.task('js', function() {
         .pipe(gulp.dest('./public/dist/'))
 });
 
-gulp.task('htmlmin', function() {
+gulp.task('html-index-min', function() {
     var htmlSrc = './src/index.html',
         htmlDst = './public/';
 
@@ -28,4 +28,13 @@ gulp.task('htmlmin', function() {
         .pipe(gulp.dest(htmlDst));
 });
 
-gulp.task('default', ['js', 'htmlmin']);
+gulp.task('html-pages-min', function() {
+    var htmlSrc = './src/pages/*.html',
+        htmlDst = './public/pages/';
+
+    gulp.src(htmlSrc)
+        .pipe(minifyHTML({empty: true}))
+        .pipe(gulp.dest(htmlDst));
+});
+
+gulp.task('default', ['js', 'html-index-min', 'html-pages-min']);
