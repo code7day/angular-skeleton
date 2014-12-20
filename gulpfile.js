@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    ngAnnotate = require('gulp-ng-annotate');
+    ngAnnotate = require('gulp-ng-annotate'),
+    minifyHTML = require('gulp-minify-html');
 
 var jsPath = [
     './src/vendor/angular/angular.js',
@@ -17,4 +18,13 @@ gulp.task('js', function() {
         .pipe(gulp.dest('./public/dist/'))
 });
 
-gulp.task('default', ['js']);
+gulp.task('htmlmin', function() {
+    var htmlSrc = './src/index.html',
+        htmlDst = './public/';
+
+    gulp.src(htmlSrc)
+        .pipe(minifyHTML({empty: true}))
+        .pipe(gulp.dest(htmlDst));
+});
+
+gulp.task('default', ['js', 'htmlmin']);
