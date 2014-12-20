@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app', [
+var app = angular.module('app', [
     'ngRoute'
 ]).
 
@@ -15,3 +15,7 @@ config(['$routeProvider', function($routeProvider) {
         })
         .otherwise({redirectTo: '/not-found'});
 }]);
+
+app.controller('userViewController', function($scope) {
+
+});
