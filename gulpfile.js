@@ -2,7 +2,8 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     ngAnnotate = require('gulp-ng-annotate'),
-    minifyHTML = require('gulp-minify-html');
+    minifyHTML = require('gulp-minify-html'),
+    minifyCSS = require('gulp-minify-css');
 
 var jsPath = [
     './src/vendor/angular/angular.js',
@@ -37,4 +38,16 @@ gulp.task('html-pages-min', function() {
         .pipe(gulp.dest(htmlDst));
 });
 
-gulp.task('default', ['js', 'html-index-min', 'html-pages-min']);
+var cssPath = [
+    './src/css/template.css'
+];
+
+gulp.task('css', function () {
+    gulp.src(cssPath)
+        .pipe(minifyCSS({keepBreaks:true, keepSpecialComments:false}))
+        .pipe(concat('app.css'))
+        .pipe(gulp.dest('./public/dist/'))
+});
+
+
+gulp.task('default', ['js', 'html-index-min', 'html-pages-min', 'css']);
