@@ -1,10 +1,23 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
     <title>Perfect AngularJS skeleton - Simple SPA</title>
+    <script src="/dist/app.js"></script>
 </head>
 <body>
+    <ul>
+        <li>
+            <a href="#/">Home</a>
+        </li>
+        <li>
+            <a href="#/user/1/">User view @ovr</a>
+        </li>
+        <li>
+            <a href="#/user/2/">User view @xboston</a>
+        </li>
+    </ul>
 
+    <div ng-view></div>
 </body>
 </html>
