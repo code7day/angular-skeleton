@@ -1,0 +1,17 @@
+{
+  "name": "angular-skeleton",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ovr/angular-skeleton",
+  "authors": [
+    "Дмитрий Пацура <talk@dmtry.me>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/vendor",
+    "test",
+    "tests"
+  ]
+}
