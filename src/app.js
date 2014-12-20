@@ -9,7 +9,7 @@ config(['$routeProvider', function($routeProvider) {
         .when('/', {
             templateUrl : 'pages/home.html'
         })
-        .when('/phones/:userId', {
+        .when('/user/:userId', {
             templateUrl : 'pages/user-view.html',
             controller  : 'userViewController'
         })
