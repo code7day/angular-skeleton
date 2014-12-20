@@ -14,15 +14,15 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/', {
             templateUrl : 'pages/home.html'
         })
-        .when('/user/:userId', {
+        .when('/user/:id', {
             templateUrl : 'pages/user-view.html',
             controller  : 'userViewController'
         })
         .otherwise({redirectTo: '/not-found'});
 }]);
 
-app.controller('userViewController', function($scope, User) {
-    User.get({id: 1}, function(data) {
+app.controller('userViewController', function($scope, $routeParams, User) {
+    User.get({id: $routeParams.id}, function(data) {
         $scope.user = data.result;
     });
 });
