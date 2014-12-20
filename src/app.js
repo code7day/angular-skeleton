@@ -18,6 +18,10 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl : 'pages/user-view.html',
             controller  : 'userViewController'
         })
+        .when('/users', {
+            templateUrl : 'pages/users.html',
+            controller  : 'usersController'
+        })
         .otherwise({redirectTo: '/not-found'});
 }]);
 
