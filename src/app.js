@@ -30,7 +30,7 @@ app.config(['$routeProvider', function($routeProvider) {
             controller  : 'usersController'
         })
         .otherwise({redirectTo: '/not-found'});
-    
+
     $locationProvider.html5Mode(true);
 }]);
 
