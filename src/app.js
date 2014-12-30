@@ -16,7 +16,7 @@ app.factory("UserService", function($resource, $http) {
     };
 });
 
-app.config(['$routeProvider', function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
             templateUrl : 'pages/home.html'
@@ -32,7 +32,7 @@ app.config(['$routeProvider', function($routeProvider) {
         .otherwise({redirectTo: '/not-found'});
 
     $locationProvider.html5Mode(true);
-}]);
+});
 
 app.controller('userViewController', function($scope, $routeParams, $resource, UserService) {
     UserService.get($routeParams.id, function(data) {
