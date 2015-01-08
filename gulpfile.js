@@ -57,5 +57,12 @@ gulp.task('css', function () {
         .pipe(gulp.dest('./public/dist/'))
 });
 
+gulp.task('watch', function() {
+    gulp.watch(cssPath, ['css']);
+    gulp.watch('./src/index.html', ['html-index-min']);
+    gulp.watch('./src/pages/*.html', ['html-pages-min']);
+    gulp.watch(jsPath, ['js']);
+});
+
 
 gulp.task('default', ['js', 'html-index-min', 'html-pages-min', 'css']);
