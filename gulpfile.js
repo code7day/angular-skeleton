@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     ngAnnotate = require('gulp-ng-annotate'),
     minifyHTML = require('gulp-minify-html'),
+    templateCache = require('gulp-angular-templatecache'),
     minifyCSS = require('gulp-minify-css');
 
 var jsPath = [
@@ -35,7 +36,9 @@ gulp.task('html-pages-min', function() {
 
     gulp.src(htmlSrc)
         .pipe(minifyHTML({empty: true}))
-        .pipe(gulp.dest(htmlDst));
+        .pipe(gulp.dest(htmlDst))
+        .pipe(templateCache())
+        .pipe(gulp.dest('./public/dist'));
 });
 
 var cssPath = [
