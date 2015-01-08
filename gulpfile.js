@@ -17,7 +17,7 @@ var jsPath = [
 gulp.task('js', function() {
     gulp.src(jsPath)
         .pipe(ngAnnotate())
-        //.pipe(uglify())
+        .pipe(uglify())
         .pipe(concat('app.js'))
         .pipe(gulp.dest('./public/dist/'))
 });
