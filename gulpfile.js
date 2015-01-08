@@ -10,13 +10,14 @@ var jsPath = [
     './src/vendor/angular/angular.js',
     './src/vendor/angular-route/angular-route.js',
     './src/vendor/angular-resource/angular-resource.js',
+    './public/dist/templates.js',
     './src/app.js'
 ];
 
 gulp.task('js', function() {
     gulp.src(jsPath)
         .pipe(ngAnnotate())
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(concat('app.js'))
         .pipe(gulp.dest('./public/dist/'))
 });
@@ -37,7 +38,11 @@ gulp.task('html-pages-min', function() {
     gulp.src(htmlSrc)
         .pipe(minifyHTML({empty: true}))
         .pipe(gulp.dest(htmlDst))
-        .pipe(templateCache())
+        .pipe(templateCache({
+            root: "./pages/",
+            standalone: true,
+            module: "templatescache"
+        }))
         .pipe(gulp.dest('./public/dist'));
 });
 
