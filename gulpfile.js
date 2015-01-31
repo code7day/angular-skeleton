@@ -6,6 +6,8 @@ var gulp = require('gulp'),
     templateCache = require('gulp-angular-templatecache'),
     minifyCSS = require('gulp-minify-css');
 
+var distPath = './public/dist/';
+
 var jsPath = [
     './src/vendor/angular/angular.js',
     './src/vendor/angular-route/angular-route.js',
@@ -19,7 +21,7 @@ gulp.task('js', function() {
         .pipe(ngAnnotate())
         .pipe(uglify())
         .pipe(concat('app.js'))
-        .pipe(gulp.dest('./public/dist/'))
+        .pipe(gulp.dest(distPath))
 });
 
 gulp.task('html-index-min', function() {
@@ -43,7 +45,7 @@ gulp.task('html-pages-min', function() {
             standalone: true,
             module: "templatescache"
         }))
-        .pipe(gulp.dest('./public/dist'));
+        .pipe(gulp.dest(distPath));
 });
 
 var cssPath = [
@@ -54,7 +56,7 @@ gulp.task('css', function () {
     gulp.src(cssPath)
         .pipe(minifyCSS({keepBreaks:true, keepSpecialComments:false}))
         .pipe(concat('app.css'))
-        .pipe(gulp.dest('./public/dist/'))
+        .pipe(gulp.dest(distPath))
 });
 
 gulp.task('watch', function() {
