@@ -12,7 +12,7 @@ app.factory("UserService", function($resource, $http) {
             return $http.get("//phalcon-module.dmtry.me/api/users").success($callback);
         },
         get: function($id, $callback) {
-            return $resource("//phalcon-module.dmtry.me/api/users/get/:id", {id:'@id'}).get({id: $id}, $callback);
+            return $resource("//phalcon-module.dmtry.me/api/users/:id", {id:'@id'}).get({id: $id}, $callback);
         }
     };
 });
