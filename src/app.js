@@ -6,13 +6,13 @@ var app = angular.module('app', [
     'templatescache'
 ]);
 
-app.factory("UserService", function($resource, $http) {
+app.factory('UserService', function($resource, $http) {
     return {
         all: function($callback) {
-            return $http.get("//phalcon-module.dmtry.me/api/users").success($callback);
+            return $http.get('//phalcon-module.dmtry.me/api/users').success($callback);
         },
         get: function($id, $callback) {
-            return $resource("//phalcon-module.dmtry.me/api/users/:id", {id:'@id'}).get({id: $id}, $callback);
+            return $resource('//phalcon-module.dmtry.me/api/users/:id', {id: '@id'}).get({id: $id}, $callback);
         }
     };
 });
